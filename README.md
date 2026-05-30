@@ -7,6 +7,29 @@
 - Docker Desktop（macOS）
 - ホストに PHP / Composer / Node は不要
 
+## 重要: Composer の実行場所
+
+`vendor/` はプロジェクト直下をコンテナにマウントしているため、**コンテナ内で `composer` を実行するとホスト側の `vendor/` も同時に更新されます**。
+
+**Composer は必ず Docker コンテナ内で実行してください**（PHP 8.2 環境を揃えるため。ホストの PHP バージョンが異なると不整合が起きます）。
+
+```bash
+# 正しい例
+docker compose exec app composer install
+docker compose exec app composer require barryvdh/laravel-debugbar --dev
+```
+
+Artisan も同様に `docker compose exec app php artisan ...` で実行してください（日常コマンド表を参照）。
+
+`vendor_data` ボリュームを使っていた場合は、一度コンテナを再作成してください。
+
+```bash
+docker compose down
+docker volume rm practice-vue_vendor_data 2>/dev/null || true
+docker compose up -d
+docker compose exec app composer install
+```
+
 ## 初回セットアップ
 
 ```bash

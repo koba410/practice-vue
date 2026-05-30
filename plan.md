@@ -93,7 +93,8 @@ Laravel 本体は **コンテナ内で `composer create-project laravel/laravel 
 
 **ボリューム**
 - `.:/var/www/html` … ソース同期
-- `vendor/` と `node_modules/` は匿名ボリュームでホスト/macOS との権限・パフォーマンス問題を回避
+- `vendor/` はホストと bind mount で共有（コンテナ内 composer の結果がローカルに反映される）
+- `node_modules/` は名前付きボリュームでホスト/macOS との権限・パフォーマンス問題を回避
 
 **ネットワーク**
 - 全サービスを `practice-vue-network` に接続
