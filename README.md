@@ -1,6 +1,11 @@
 # Practice Vue — Laravel + Vue Docker 練習環境
 
-本業の素 PHP（サーバー側 HTML 生成）に近い **Blade + 部分 Vue マウント** 構成の Laravel 練習環境です。
+**2つの学習モード** を同一 Docker 環境で使えます。
+
+| モード | 用途 | 入口 URL |
+|---|---|---|
+| **Breeze + Vue Inertia** | 教材どおり Vue 文法・コンポーネント・フォームを学ぶ | http://localhost:8080 |
+| **Blade + 部分 Vue** | 本業に近いサーバー描画 + 部分マウント | http://localhost:8080/demo |
 
 ## 前提
 
@@ -73,12 +78,37 @@ docker compose restart node
 
 | サービス | URL |
 |---|---|
-| Laravel | http://localhost:8080 |
+| Laravel（Breeze Welcome） | http://localhost:8080 |
+| ログイン | http://localhost:8080/login |
+| ユーザー登録 | http://localhost:8080/register |
+| ダッシュボード（要ログイン） | http://localhost:8080/dashboard |
 | デモページ（Blade + Vue） | http://localhost:8080/demo |
 | Vite HMR（開発時） | http://localhost:5173 |
 | phpMyAdmin | http://localhost:8081 |
 
 ## 構成のポイント
+
+### Breeze + Vue Inertia（教材向け）
+
+Laravel Breeze（Vue + Inertia）を導入済みです。認証画面・ダッシュボード・プロフィール編集が Vue で構成されています。
+
+**学習の進め方（おすすめ順）**
+
+1. `resources/js/Pages/Auth/Login.vue` … フォーム + `useForm()` + バリデーション表示
+2. `resources/js/Pages/Auth/Register.vue` … 複数フィールドのフォーム
+3. `resources/js/Components/TextInput.vue` … 再利用コンポーネント、`v-model`
+4. `resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue` … 編集フォーム
+5. `resources/js/Pages/Dashboard.vue` … レイアウト + props
+
+**動作確認**
+
+```bash
+# 1. http://localhost:8080/register でユーザーを作成
+# 2. ログイン後 http://localhost:8080/dashboard を表示
+# 3. http://localhost:8080/profile でプロフィール編集
+```
+
+Inertia 固有の `useForm()` / `Link` / `Head` は教材用の部品として学び、Vue 本体（`ref`, `computed`, SFC, props）は本業の部分 Vue にも転用できます。
 
 ### Blade + 部分 Vue（本業に近い）
 
@@ -87,7 +117,8 @@ docker compose restart node
 - **Vue** … 検索フィルタなど動きが必要な部分のみ `createApp().mount()`
 
 デモページ: `resources/views/demo/index.blade.php`  
-Vue コンポーネント: `resources/js/components/UserFilter.vue`
+Vue コンポーネント: `resources/js/Components/UserFilter.vue`  
+エントリ JS: `resources/js/entries/user-filter.js`
 
 ### 本番相当の確認
 
@@ -143,3 +174,5 @@ docker compose exec node npm run build
 | MariaDB | 10.11 |
 | Node | 20 |
 | Vue | 3 |
+| Inertia.js | 2.x |
+| Laravel Breeze | 2.x |

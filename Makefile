@@ -37,7 +37,10 @@ fresh:
 	docker compose exec app php artisan migrate:fresh --seed
 
 demo:
-	@echo "Laravel:     http://localhost:8080"
+	@echo "Breeze:      http://localhost:8080"
+	@echo "Login:       http://localhost:8080/login"
+	@echo "Register:    http://localhost:8080/register"
+	@echo "Dashboard:   http://localhost:8080/dashboard"
 	@echo "Demo page:   http://localhost:8080/demo"
 	@echo "phpMyAdmin:  http://localhost:8081"
 	@echo "Vite HMR:    http://localhost:5173"
