@@ -33,5 +33,5 @@
 @endsection
 
 @push('vite')
-    @vite(['resources/js/pages/user-filter.js'])
+    @vite(['resources/js/entries/user-filter.js'])
 @endpush

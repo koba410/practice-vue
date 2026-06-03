@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import UserFilter from '../components/UserFilter.vue';
+import UserFilter from '../Components/UserFilter.vue';
 
 const el = document.getElementById('user-filter-app');
 
