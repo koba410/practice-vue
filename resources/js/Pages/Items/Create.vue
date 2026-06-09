@@ -40,11 +40,7 @@ const storeItem = () => {
                                         <div class="flex flex-wrap -m-2">
                                             <div class="p-2 w-full">
                                                 <div class="relative">
-                                                    <label
-                                                        for="name"
-                                                        class="leading-7 text-sm text-gray-600"
-                                                        >商品名</label
-                                                    >
+                                                    <label for="name" class="leading-7 text-sm text-gray-600">商品名</label>
                                                     <input
                                                         type="text"
                                                         id="name"
@@ -60,11 +56,7 @@ const storeItem = () => {
                                             </div>
                                             <div class="p-2 w-full">
                                                 <div class="relative">
-                                                    <label
-                                                        for="price"
-                                                        class="leading-7 text-sm text-gray-600"
-                                                        >価格</label
-                                                    >
+                                                    <label for="price" class="leading-7 text-sm text-gray-600">価格</label>
                                                     <input
                                                         type="number"
                                                         id="price"
@@ -80,11 +72,7 @@ const storeItem = () => {
                                             </div>
                                             <div class="p-2 w-full">
                                                 <div class="relative">
-                                                    <label
-                                                        for="memo"
-                                                        class="leading-7 text-sm text-gray-600"
-                                                        >メモ</label
-                                                    >
+                                                    <label for="memo" class="leading-7 text-sm text-gray-600">メモ</label>
                                                     <textarea
                                                         id="memo"
                                                         name="memo"
@@ -98,10 +86,7 @@ const storeItem = () => {
                                                 </div>
                                             </div>
                                             <div class="p-2 w-full">
-                                                <button
-                                                    class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                                                    商品登録
-                                                </button>
+                                                <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">商品登録</button>
                                             </div>
                                         </div>
                                     </div>

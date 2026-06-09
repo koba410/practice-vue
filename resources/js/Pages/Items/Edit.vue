@@ -40,11 +40,7 @@ const updateItem = (id) => {
                                         <div class="flex flex-wrap -m-2">
                                             <div class="p-2 w-full">
                                                 <div class="relative">
-                                                    <label
-                                                        for="name"
-                                                        class="leading-7 text-sm text-gray-600"
-                                                        >商品名</label
-                                                    >
+                                                    <label for="name" class="leading-7 text-sm text-gray-600">商品名</label>
                                                     <input
                                                         type="text"
                                                         id="name"
@@ -60,11 +56,7 @@ const updateItem = (id) => {
                                             </div>
                                             <div class="p-2 w-full">
                                                 <div class="relative">
-                                                    <label
-                                                        for="price"
-                                                        class="leading-7 text-sm text-gray-600"
-                                                        >価格</label
-                                                    >
+                                                    <label for="price" class="leading-7 text-sm text-gray-600">価格</label>
                                                     <input
                                                         type="number"
                                                         id="price"
@@ -80,11 +72,7 @@ const updateItem = (id) => {
                                             </div>
                                             <div class="p-2 w-full">
                                                 <div class="relative">
-                                                    <label
-                                                        for="memo"
-                                                        class="leading-7 text-sm text-gray-600"
-                                                        >メモ</label
-                                                    >
+                                                    <label for="memo" class="leading-7 text-sm text-gray-600">メモ</label>
                                                     <textarea
                                                         id="memo"
                                                         name="memo"
@@ -99,33 +87,11 @@ const updateItem = (id) => {
                                             </div>
                                             <div class="p-2 w-full">
                                                 <div class="relative">
-                                                    <label
-                                                        for="is_selling"
-                                                        class="leading-7 text-sm text-gray-600"
-                                                        >ステータス</label
-                                                    >
-                                                    <input
-                                                        type="radio"
-                                                        id="is_selling_on"
-                                                        name="is_selling"
-                                                        v-model="form.is_selling"
-                                                        value="1" />
-                                                    <label
-                                                        for="is_selling_on"
-                                                        class="leading-7 text-sm text-gray-600"
-                                                        >販売中</label
-                                                    >
-                                                    <input
-                                                        type="radio"
-                                                        id="is_selling_off"
-                                                        name="is_selling"
-                                                        v-model="form.is_selling"
-                                                        value="0" />
-                                                    <label
-                                                        for="is_selling_off"
-                                                        class="leading-7 text-sm text-gray-600"
-                                                        >停止中</label
-                                                    >
+                                                    <label for="is_selling" class="leading-7 text-sm text-gray-600">ステータス</label>
+                                                    <input type="radio" id="is_selling_on" name="is_selling" v-model="form.is_selling" value="1" />
+                                                    <label for="is_selling_on" class="leading-7 text-sm text-gray-600">販売中</label>
+                                                    <input type="radio" id="is_selling_off" name="is_selling" v-model="form.is_selling" value="0" />
+                                                    <label for="is_selling_off" class="leading-7 text-sm text-gray-600">停止中</label>
                                                 </div>
                                                 <div v-if="errors.is_selling">
                                                     <p class="text-sm text-red-600">
@@ -135,10 +101,7 @@ const updateItem = (id) => {
                                             </div>
 
                                             <div class="p-2 w-full">
-                                                <button
-                                                    class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                                                    更新する
-                                                </button>
+                                                <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">更新する</button>
                                             </div>
                                         </div>
                                     </div>
