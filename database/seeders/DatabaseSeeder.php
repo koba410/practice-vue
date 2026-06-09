@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Customer;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,12 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->createMany([
-            ['name' => '山田 太郎', 'email' => 'taro@example.com'],
-            ['name' => '佐藤 花子', 'email' => 'hanako@example.com'],
-            ['name' => '鈴木 一郎', 'email' => 'ichiro@example.com'],
-            ['name' => '田中 美咲', 'email' => 'misaki@example.com'],
-            ['name' => '高橋 健太', 'email' => 'kenta@example.com'],
+        $this->call([
+            UserSeeder::class,
+            ItemSeeder::class,
         ]);
+
+        Customer::factory()->count(1000)->create();
     }
 }
